@@ -1,73 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV \ E-Portfolio - BTS SIO</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Yanis A. | BTS SIO SISR</title>
+
+  <!-- Fonts / Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- AOS (animations) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-color: #0a0f16;
+      --text-color: #e4f0fb;
+      --accent: #B6F500;
+      --muted: #9aa4b2;
+      --glass: rgba(15,18,30,0.6);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:#0a0f16;
+      color:var(--text-color);
+      font-family:'JetBrains Mono',monospace;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .container{width:90%;max-width:1100px;margin:0 auto}
+
+    /* NAVBAR */
+    header.nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background: rgba(10,15,22,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,102,0,0.12);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    nav.main-nav{display:flex;gap:18px;align-items:center}
+    nav.main-nav a{color:var(--text-color);text-decoration:none;padding:6px 0;position:relative}
+    nav.main-nav a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);transition:width .25s}
+    nav.main-nav a:hover{color:var(--accent)}
+    nav.main-nav a:hover::after{width:100%}
+
+    .hero{min-height:92vh;display:flex;align-items:center;justify-content:center;padding:120px 0 40px;text-align:center;flex-direction:column}
+    .hero h1{font-size:2.8rem;margin-bottom:12px;position:relative}
+    .hero p{color:#c9d6e6;max-width:820px;margin:0 auto 18px}
+
+    .btn{display:inline-block;padding:8px 14px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.9rem}
+    .btn-primary{background:var(--accent);color:#080808}
+    .btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
+
+    section{padding:72px 0}
+    .section-title{font-size:1.8rem;margin-bottom:16px;color:var(--accent);text-align:center}
+    .lead{color:var(--muted);text-align:center;margin-bottom:22px}
+
+    .card{
+      background:var(--glass);border-radius:12px;padding:26px;border:1px solid rgb(182, 245, 0);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 36px rgba(255,102,0,0.04)}
+
+    .grid{display:grid;gap:18px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){
+      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+      .hero h1{font-size:2rem}
+      nav.main-nav{display:none}
+    }
+
+    .timeline{max-width:900px;margin:0 auto}
+    .timeline-item{border-left:3px solid var(--accent);padding-left:14px;margin-bottom:18px}
+
+    form.contact{max-width:720px;margin:0 auto;display:grid;gap:12px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,102,0,0.12);background:rgba(26,31,38,0.8);color:var(--text-color)}
+    input[type="submit"]{cursor:pointer;background:var(--accent);color:#080808;border:none;padding:12px 16px;border-radius:10px;font-weight:700}
+
+    footer.site-footer{padding:28px 0;text-align:center;border-top:1px solid rgba(255,102,0,0.06);color:var(--muted)}
+
+    .embed-frame{width:100%;height:520px;border:0;border-radius:12px;background:#fff}
+    .center{text-align:center}
+
+    /* Certifications toggle */
+    .certs-container{display:none;margin-top:18px}
+    .cert-toggle{margin:0 auto;display:block;margin-top:14px}
+
+    /* Stage button */
+    .stage-btn{float:right;font-size:0.8rem;padding:4px 8px}
+
+    /* Fuzzy Text effect */
+    .fuzzy-text {
+      color: var(--accent);
+      position: relative;
+      text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+      animation: fuzzy 2s infinite alternate;
+    }
+    @keyframes fuzzy {
+      0% { text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent); }
+      50% { text-shadow: 0 0 15px var(--accent), 0 0 25px var(--accent); }
+      100% { text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent); }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Yanis AIT ABBOU</h1>
-        <p>Étudiant en BTS SIO - Services Informatiques aux Organisations</p>
-        <p>Email : <a href="mailto:yanisaitabboupro@gmail.com">yanisaitabboupro@gmail.com</a></p>
-    </header>
 
-    <section class="section">
-        <h2>Compétences</h2>
-        <ul>
-            <li><strong>Langages:</strong> Python, JavaScript, PHP, HTML, CSS, Bash, Powershell, SQL</li>
-            <li><strong>Outils :</strong> Git, Visual Studio Code, VirtualBox, FTPZilla, MySQL, Packet Tracer</li>
-            <li><strong>OS :</strong> Linux (Debian), Windows</li>
-            <li><strong>Réseau :</strong> DHCP, TCP IP, UDP, SNMP</li>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <nav class="main-nav">
+        <a href="#accueil">Accueil</a>
+        <a href="#profil">Profil</a>
+        <a href="#bts-sio">BTS SIO</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#stages">Stages</a>
+        <a href="#projets">Projets</a>
+        <a href="#veille">Veille</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-        </ul>
+  <main style="padding-top:86px">
+    <!-- ACCUEIL -->
+    <section id="accueil" class="hero">
+      <div class="container" data-aos="fade-up">
+        <h1><span class="fuzzy-text">YANIS A.</span></h1>
+        <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong>. Passionné par l'administration, le déploiement d'infrastructure et la cybersécurité.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:10px">
+          <a class="btn btn-outline" href="#profil">Découvrir mon profil</a>
+          <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-        <h2>Formation</h2>
-        <ul>
-            <li><strong>BTS SIO - Services Informatiques aux Organisations</strong> - Lycée Turgot (Paris) (2024 - Présent)</li>
-            <li><strong>Baccalauréat Général (Mathématiques-Physique Chimie)</strong> - Lycée Saint Exupery (2022)</li>
-        </ul>
+    <!-- PROFIL -->
+    <section id="profil">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Profil</h2>
+        <div class="lead">Présentation rapide.</div>
+        <div class="card">
+          <p>Étudiant en BTS SIO (SISR) — passionné par l’administration système, la sécurité et la virtualisation. Expérience : projets scolaires, stages en assistance et support, déploiement d’infrastructures.</p>
+        </div>
+      </div>
+    </section>
+    <section id="parcours">
+      <div class="container" data-aos="fade-left">
+        <h2 class="section-title">Parcours académique</h2>
+        <div class="card">
+          <ul>
+            <li><strong>2023 - 2025 :</strong> BTS Services Informatiques aux Organisations (option SISR)</li>
+            <li><strong>2022 - 2023 :</strong> Baccalauréat Général — spécialités Mathématiques et NSI</li>
+            <li><strong>2019 - 2022 :</strong> Lycée général et technologique</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-        <h2>Expériences Professionnelles</h2>
-        <ul>
-            <li>
-                <strong>Stagiaire 3ème</strong> -Golf Bluegreen Guerville (Decembre 2018)
-                <p>Développement de compétences de bases du monde du travail (travail en équipe, gestion et accueil des clients etc)</p>
-            </li>
-        </ul>
+    <!-- BTS SIO -->
+    <section id="bts-sio">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Qu'est-ce que le BTS SIO ?</h2>
+        <p>Le Brevet de Technicien Supérieur Services Informatiques aux Organisations est un diplôme national de l'enseignement supérieur de niveau Bac+2. Cette formation se déroule sur deux ans et prépare aux métiers de l'informatique.</p>
+        <h3 style="margin-top:18px;color:var(--accent)">Les deux options du BTS SIO</h3>
+        <div class="grid cols-2" style="margin-top:16px">
+          <div class="card">
+            <h4 style="color:var(--accent)">SISR - Solutions d'Infrastructure, Systèmes et Réseaux</h4>
+            <ul>
+              <li>Administration des systèmes et des réseaux</li>
+              <li>Cybersécurité et protection des données</li>
+              <li>Maintenance des infrastructures</li>
+              <li>Solutions de virtualisation et cloud</li>
+              <li>Support et assistance aux utilisateurs</li>
+            </ul>
+            <p><em>Débouchés : Administrateur systèmes et réseaux, Technicien support, Expert en cybersécurité</em></p>
+          </div>
+          <div class="card">
+            <h4 style="color:var(--accent)">SLAM - Solutions Logicielles et Applications Métiers</h4>
+            <ul>
+              <li>Développement d'applications web et mobiles</li>
+              <li>Programmation et bases de données</li>
+              <li>Conception de solutions applicatives</li>
+              <li>Gestion de projets informatiques</li>
+              <li>Maintenance des applications</li>
+            </ul>
+            <p><em>Débouchés : Développeur web/mobile, Analyste programmeur, Chef de projets</em></p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:22px;color:var(--accent)">Programme commun</h3>
+          <ul>
+            <li>Culture générale et expression</li>
+            <li>Expression et communication en langue anglaise</li>
+            <li>Mathématiques pour l'informatique</li>
+            <li>Culture économique, juridique et managériale</li>
+            <li>Analyse économique, managériale et juridique des services informatiques</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:22px;color:var(--accent)">Stages en entreprise</h3>
+          <p>La formation comprend 12 semaines de stage réparties sur les deux années :</p>
+          <ul>
+            <li>Stage de première année : 5 semaines</li>
+            <li>Stage de deuxième année : 7 semaines</li>
+          </ul>
+        </div>
+        <p>Ces stages permettent de mettre en pratique les connaissances acquises et de développer une expérience professionnelle.</p>
+      </div>
     </section>
 
-    <section class="section">
-        <h2>Projets</h2>
-        <ul>
-            <li>
-                <strong>Jeu "Devine le Nombre"</strong> -
-                <p>Développement d'une application web en Javascript et HTML, distribuée en réseau.</p>
-            </li>
-        </ul>
-         <ul>
-            <li>
-                <strong>Projet de Site web hebergé en réseau VLAN</strong> -
-                <p>Développement d'un site web, sécurisé, disponible en réseau VLAN. Inclut base de donnée SQL, script d'automatisation bash, html, php.</p>
-            </li>
-        </ul>
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Certifications</h2>
+        <p class="lead">Cliquez pour afficher/masquer mes certifications.</p>
+        <button class="btn btn-outline cert-toggle" onclick="toggleCerts()">Afficher / Masquer</button>
+        <div class="certs-container grid cols-2">
+          <div class="card">
+            <strong>Certificat Pix</strong><br>
+            <a href="pdf/certificat-pix.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+          </div>
+          <div class="card">
+            <strong>Packet Tracer</strong><br>
+            <a href="pdf/packet-tracer.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+          </div>
+          <div class="card">
+            <strong>Introduction à la cybersécurité</strong><br>
+            <a href="pdf/cybersecurite.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+          </div>
+          <div class="card">
+            <strong>Notions de base sur les réseaux</strong><br>
+            <a href="pdf/reseaux.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-        <h2>Langues</h2>
-        <ul>
-            <li>Français : Langue maternelle</li>
-            <li>Anglais : B2</li>
-        </ul>
+    <!-- STAGES -->
+    <section id="stages">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Stages</h2>
+        <div class="card">
+          <h3 style="color:var(--accent)">Stage InnovItech</h3>
+          <a href="pdf/stage1.pdf" class="btn btn-outline stage-btn" target="_blank">Rapport</a>
+          <p>Administration réseau, gestion AD, maintenance des serveurs, déploiement de GLPI.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent)">Stage Lycée Turgot</h3>
+          <a href="pdf/stage2.pdf" class="btn btn-outline stage-btn" target="_blank">Rapport</a>
+          <p>Maintenance du parc, serveur de fichiers, configuration de VM et pfSense.</p>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2024 Yanis AIT ABBOU - Tous droits réservés</p>
+    <!-- PROJETS -->
+    <section id="projets">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Projets</h2>
+        <p class="lead">Réalisations techniques durant ma formation BTS SIO SISR</p>
+        <div class="grid cols-2">
+          <div class="card"><strong>Jeu « Devine le Nombre »</strong><p>Développement d’une application web en Javascript et HTML, distribuée en réseau : Création de site web, mise à disposition en réseau, élaboration de cahier des charges, de recette et de test.</p></div>
+          <div class="card"><strong>Projet de Site web hebergé en réseau VLAN</strong><p>Développement d’un site web, sécurisé, disponible en réseau VLAN. Inclut base de donnée SQL, script d’automatisation bash, html, php.: Programmation de site web, mise en place d’une infrastructure réseau détaillée et fonctionnelle, mise à disposition en réseau VLAN, limitation des accès. Elaboration de cahier des charges, de recette et de test.</p></div>
+          <div class="card"><strong>Serveur GLPI</strong><p>Gestion de parc et supervision.</p></div>
+          <div class="card"><strong>pfSense</strong><p>Segmentation, NAT, filtrage.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VEILLE -->
+    <section id="veille">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Veille technologique</h2>
+        <div class="timeline">
+          <div class="timeline-item"><h4>Cybersécurité</h4><p>Analyse des menaces, suivi CVE, durcissement systèmes.</p></div>
+          <div class="timeline-item"><h4>Cloud & Virtualisation</h4><p>Évolution des environnements et services sécurisés.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences">
+      <div class="container" data-aos="fade-right">
+        <h2 class="section-title">Compétences</h2>
+        <div class="grid cols-3" style="margin-top:18px">
+          <div class="card">
+            <h3 style="color:var(--accent)">Systèmes & Réseaux</h3>
+            <ul style="margin-top:8px">
+              <li>Linux, Windows Server</li>
+              <li>Active Directory</li>
+              <li>Virtualisation (Proxmox, VirtualBox)</li>
+              <li>Réseaux VLAN, DHCP, DNS</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--accent)">Développement</h3>
+            <ul style="margin-top:8px">
+              <li>HTML, CSS, PHP</li>
+              <li>SQL / Bases de données</li>
+              <li>Python, PowerShell</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--accent)">Outils & Sécurité</h3>
+            <ul style="margin-top:8px">
+              <li>Git / GitHub</li>
+              <li>pfSense, GLPI</li>
+              <li>Packet Tracer</li>
+              <li>Cybersécurité — veille & bonnes pratiques</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top:24px;text-align:center">
+          <h3 style="color:var(--accent);margin-bottom:12px">Tableau de Synthèse</h3>
+          <p>Retrouvez l'ensemble de mes compétences, projets et mises en pratique dans un tableau récapitulatif.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Contact</h2>
+        <form class="contact card" onsubmit="event.preventDefault(); alert('Formulaire simulé');">
+          <input type="text" placeholder="Nom" required>
+          <input type="email" placeholder="Email" required>
+          <textarea rows="6" placeholder="Votre message" required></textarea>
+          <input type="submit" value="Envoyer">
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="text-muted">© 2025 – Portfolio Yanis A. — BTS SIO SISR</p>
+      </div>
     </footer>
+  </main>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 80 });
+    function toggleCerts(){
+      const box=document.querySelector('.certs-container');
+      box.style.display = (box.style.display==="none"||box.style.display==="")?"grid":"none";
+    }
+  </script>
 </body>
 </html>
