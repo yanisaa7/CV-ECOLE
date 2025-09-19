@@ -15,6 +15,7 @@
   <style>
     :root{
       --bg-color: #0a0f16;
+      --bg-alt: #05080c;
       --text-color: #e4f0fb;
       --accent: #B6F500;
       --muted: #9aa4b2;
@@ -24,7 +25,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      background:#0a0f16;
+      background:var(--bg-color);
       color:var(--text-color);
       font-family:'JetBrains Mono',monospace;
       line-height:1.6;
@@ -56,6 +57,7 @@
     .btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
 
     section{padding:72px 0}
+    section.alt{background:var(--bg-alt)}
     .section-title{font-size:1.8rem;margin-bottom:16px;color:var(--accent);text-align:center}
     .lead{color:var(--muted);text-align:center;margin-bottom:22px}
 
@@ -68,8 +70,9 @@
     .grid{display:grid;gap:18px}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-5{grid-template-columns:repeat(5,1fr)}
     @media (max-width:900px){
-      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2,.grid.cols-3,.grid.cols-5{grid-template-columns:1fr}
       .hero h1{font-size:2rem}
       nav.main-nav{display:none}
     }
@@ -105,6 +108,9 @@
       50% { text-shadow: 0 0 15px var(--accent), 0 0 25px var(--accent); }
       100% { text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent); }
     }
+    
+    .date-label{font-size:0.8rem;color:var(--accent);margin-bottom:8px;display:block}
+
   </style>
 </head>
 <body>
@@ -115,9 +121,8 @@
       <nav class="main-nav">
         <a href="#accueil">Accueil</a>
         <a href="#profil">Profil</a>
-        <a href="#bts-sio">BTS SIO</a>
         <a href="#certifications">Certifications</a>
-        <a href="#stages">Stages</a>
+        <a href="#experiences">Experiences</a>
         <a href="#projets">Projets</a>
         <a href="#veille">Veille</a>
         <a href="#competences">Compétences</a>
@@ -131,7 +136,7 @@
     <section id="accueil" class="hero">
       <div class="container" data-aos="fade-up">
         <h1><span class="fuzzy-text">YANIS A.</span></h1>
-        <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong>. Passionné par l'administration, le déploiement d'infrastructure et la cybersécurité.</p>
+        <p class="lead">Étudiant en <strong>BTS SIO — option SISR</strong>. Passionné par l'informatique, les réseaux et la cybersécurité.</p>
         <div style="display:flex;gap:12px;justify-content:center;margin-top:10px">
           <a class="btn btn-outline" href="#profil">Découvrir mon profil</a>
           <a class="btn btn-primary" href="#projets">Voir mes projets</a>
@@ -140,191 +145,223 @@
     </section>
 
     <!-- PROFIL -->
-    <section id="profil">
-      <div class="container" data-aos="fade-right">
-        <h2 class="section-title">Profil</h2>
-        <div class="lead">Présentation rapide.</div>
-        <div class="card">
-          <p>Étudiant en BTS SIO (SISR) — passionné par l’administration système, la sécurité et la virtualisation. Expérience : projets scolaires, stages en assistance et support, déploiement d’infrastructures.</p>
-        </div>
-      </div>
-    </section>
-    <section id="parcours">
-      <div class="container" data-aos="fade-left">
-        <h2 class="section-title">Parcours académique</h2>
-        <div class="card">
-          <ul>
-            <li><strong>2023 - 2025 :</strong> BTS Services Informatiques aux Organisations (option SISR)</li>
-            <li><strong>2022 - 2023 :</strong> Baccalauréat Général — spécialités Mathématiques et NSI</li>
-            <li><strong>2019 - 2022 :</strong> Lycée général et technologique</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <section id="profil" class="alt">
+<div class="container" data-aos="fade-right">
+        <h2 class="section-title">Profil & Parcours</h2>
+        <div class="grid cols-2" style="align-items:stretch">
+          <div class="card">
+            <h3 style="color:var(--accent);margin-bottom:10px">Présentation</h3>
+            <p>Passionné d’informatique depuis de nombreuses années, j’ai commencé par explorer ce domaine comme un simple loisir, avant de réaliser qu’il pouvait devenir le cœur de mon projet professionnel. Cette passion m’a conduit à approfondir mes connaissances et à chercher constamment à comprendre le fonctionnement des technologies qui nous entourent.
 
-    <!-- BTS SIO -->
-    <section id="bts-sio">
-      <div class="container" data-aos="fade-right">
-        <h2 class="section-title">Qu'est-ce que le BTS SIO ?</h2>
-        <p>Le Brevet de Technicien Supérieur Services Informatiques aux Organisations est un diplôme national de l'enseignement supérieur de niveau Bac+2. Cette formation se déroule sur deux ans et prépare aux métiers de l'informatique.</p>
-        <h3 style="margin-top:18px;color:var(--accent)">Les deux options du BTS SIO</h3>
-        <div class="grid cols-2" style="margin-top:16px">
-          <div class="card">
-            <h4 style="color:var(--accent)">SISR - Solutions d'Infrastructure, Systèmes et Réseaux</h4>
-            <ul>
-              <li>Administration des systèmes et des réseaux</li>
-              <li>Cybersécurité et protection des données</li>
-              <li>Maintenance des infrastructures</li>
-              <li>Solutions de virtualisation et cloud</li>
-              <li>Support et assistance aux utilisateurs</li>
-            </ul>
-            <p><em>Débouchés : Administrateur systèmes et réseaux, Technicien support, Expert en cybersécurité</em></p>
+Curieux de nature, j’aime aborder des sujets variés, qu’ils relèvent des systèmes, des réseaux, du développement ou de la sécurité. Pour moi, chaque apprentissage est l’occasion d’élargir ma vision et de relier des notions entre elles. J’apprécie particulièrement le fait de relever des défis que je m’impose, car ils me poussent à dépasser mes limites et à trouver des solutions concrètes.
+
+Mon objectif est simple : faire de cette curiosité et de cette soif d’apprendre un véritable moteur pour évoluer dans le monde professionnel, tout en continuant à nourrir ma passion personnelle pour l’informatique.</p>
           </div>
-          <div class="card">
-            <h4 style="color:var(--accent)">SLAM - Solutions Logicielles et Applications Métiers</h4>
-            <ul>
-              <li>Développement d'applications web et mobiles</li>
-              <li>Programmation et bases de données</li>
-              <li>Conception de solutions applicatives</li>
-              <li>Gestion de projets informatiques</li>
-              <li>Maintenance des applications</li>
-            </ul>
-            <p><em>Débouchés : Développeur web/mobile, Analyste programmeur, Chef de projets</em></p>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="card" style="position:relative">
+              <span class="date-label">2024 - 2026</span>
+              <h3 style="color:var(--accent);margin-bottom:10px">BTS SIO (SISR) — Lycée Turgot</h3>
+              <ul>
+                <li>Administration systèmes & réseaux</li>
+                <li>Sécurisation des infrastructures</li>
+                <li>Virtualisation & Cloud computing</li>
+                <li>Supervision et maintenance</li>
+                <li>Gestion des bases de données</li>
+                <li>Mise en place de services réseau</li>
+                <li>Documentation et veille technologique</li>
+              </ul>
+              <a href="pdf/parcours-bts.pdf" target="_blank" class="btn btn-outline stage-btn" style="margin-top:12px;float:right">Voir plus</a>
+            </div>
+            <div class="card" style="position:relative">
+              <span class="date-label">2019 - 2022</span>
+              <h3 style="color:var(--accent);margin-bottom:10px">Baccalauréat Général - Spécialités Mathématiques et Physique-Chimie</h3>
+              <ul>
+               <li>Analyse et algèbre : logique, fonctions, probabilités et statistiques</li> 
+               <li>Algorithmique et modélisation de problèmes complexes</li> 
+              <li>Bases du raisonnement scientifique et rigueur mathématique </li>
+               <li> Électricité, circuits et signaux</li>
+              <li> Chimie des matériaux et notions d’énergie</li> 
+               <li>Approche expérimentale et travail en laboratoire</li> 
+               <li>Développement des capacités d’abstraction et de résolution de problèmes</li> 
+               <li>Méthodes utiles en informatique : logique booléenne, calculs, modélisation</li> 
+              </ul>
+              <a href="pdf/parcours-bac.pdf" target="_blank" class="btn btn-outline stage-btn" style="margin-top:12px;float:right">Voir plus</a>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <h3 style="margin-top:22px;color:var(--accent)">Programme commun</h3>
-          <ul>
-            <li>Culture générale et expression</li>
-            <li>Expression et communication en langue anglaise</li>
-            <li>Mathématiques pour l'informatique</li>
-            <li>Culture économique, juridique et managériale</li>
-            <li>Analyse économique, managériale et juridique des services informatiques</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:22px;color:var(--accent)">Stages en entreprise</h3>
-          <p>La formation comprend 12 semaines de stage réparties sur les deux années :</p>
-          <ul>
-            <li>Stage de première année : 5 semaines</li>
-            <li>Stage de deuxième année : 7 semaines</li>
-          </ul>
-        </div>
-        <p>Ces stages permettent de mettre en pratique les connaissances acquises et de développer une expérience professionnelle.</p>
-      </div>
-    </section>
+      </div>    </section>
 
     <!-- CERTIFICATIONS -->
     <section id="certifications">
-      <div class="container" data-aos="fade-right">
-        <h2 class="section-title">Certifications</h2>
-        <p class="lead">Cliquez pour afficher/masquer mes certifications.</p>
-        <button class="btn btn-outline cert-toggle" onclick="toggleCerts()">Afficher / Masquer</button>
-        <div class="certs-container grid cols-2">
-          <div class="card">
-            <strong>Certificat Pix</strong><br>
-            <a href="pdf/certificat-pix.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
-          </div>
-          <div class="card">
-            <strong>Packet Tracer</strong><br>
-            <a href="pdf/packet-tracer.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
-          </div>
-          <div class="card">
-            <strong>Introduction à la cybersécurité</strong><br>
-            <a href="pdf/cybersecurite.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
-          </div>
-          <div class="card">
-            <strong>Notions de base sur les réseaux</strong><br>
-            <a href="pdf/reseaux.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
-          </div>
+<div class="container" data-aos="fade-right">
+    <h2 class="section-title">Certifications</h2>
+    <p class="lead">Cliquez pour afficher/masquer mes certifications.</p>
+    <button class="btn btn-outline cert-toggle" onclick="toggleCerts()">Afficher / Masquer</button>
+    <div class="certs-container grid cols-2">
+      
+      <div class="card" style="display:flex;align-items:center;gap:12px">
+        <img src="img/pix.png" alt="Pix" style="width:36px;height:36px">
+        <div>
+          <strong>Certificat Pix</strong><br>
+          <a href="pdf/certificat-pix.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
         </div>
       </div>
-    </section>
+      
+      <div class="card" style="display:flex;align-items:center;gap:12px">
+        <img src="img/packettracer.png" alt="Packet Tracer" style="width:36px;height:36px">
+        <div>
+          <strong>Packet Tracer</strong><br>
+          <a href="pdf/packet-tracer.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+        </div>
+      </div>
+      
+      <div class="card" style="display:flex;align-items:center;gap:12px">
+        <img src="img/cyber.png" alt="Cybersécurité" style="width:36px;height:36px">
+        <div>
+          <strong>Introduction à la cybersécurité</strong><br>
+          <a href="pdf/cybersecurite.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+        </div>
+      </div>
+      
+      <div class="card" style="display:flex;align-items:center;gap:12px">
+        <img src="img/reseau.png" alt="Réseaux" style="width:36px;height:36px">
+        <div>
+          <strong>Notions de base sur les réseaux</strong><br>
+          <a href="pdf/reseaux.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+        </div>
+      </div>
 
-    <!-- STAGES -->
-    <section id="stages">
+    </div>
+  </div>    </section>
+
+    <!-- EXP -->
+    <section id="experiences" class="alt">
       <div class="container" data-aos="fade-right">
-        <h2 class="section-title">Stages</h2>
+        <h2 class="section-title">Experiences</h2>
         <div class="card">
           <h3 style="color:var(--accent)">Stage InnovItech</h3>
           <a href="pdf/stage1.pdf" class="btn btn-outline stage-btn" target="_blank">Rapport</a>
-          <p>Administration réseau, gestion AD, maintenance des serveurs, déploiement de GLPI.</p>
+           <li>Création d'un site internet e-commerce pour une entreprise. </li>
+           <li>Usage de Wordpress et de plugins. Développement en PHP, HTML, CSS et Javascript principalement. </li> 
+           <li>Mise en place d'une base de données MySQL. </li> 
+           <li>Sécurisation des formulaires et accès</li> 
+            <li> Dépannage matériel informatique. </li> 
+           <li>Rédaction des procédures.</li>  
         </div>
         <div class="card">
-          <h3 style="color:var(--accent)">Stage Lycée Turgot</h3>
+          <h3 style="color:var(--accent)">Lycée Turgot - Mise en situation professionelle / Projets Scolaires</h3>
           <a href="pdf/stage2.pdf" class="btn btn-outline stage-btn" target="_blank">Rapport</a>
-          <p>Maintenance du parc, serveur de fichiers, configuration de VM et pfSense.</p>
+            <li>Installation et configuration de serveurs Linux. </li>
+            <li>Mise en place de services Web, DHCP, DNS. </li>
+            <li>Installation et configuration de pare-feu/routeurs. </li>
+             <li>Configuration de switches Cisco.</li> 
+            <li>Virtualisation et cloud computing. </li>  
+            <li>Mise en place de VLANs</li> 
+             <li>Élaboration de différents projets : sites web, jeux en ligne, infrastructure réseaucomplexe.</li> 
+             <li> Travail en méthodologie Agile, Kanban. Planification et attribution des tâches. Suivi des délais et respect des échéances. </li>
+             <li>Gestion de la documentation de projet</li> 
         </div>
-      </div>
-    </section>
+      </div>   
+     </section>
 
     <!-- PROJETS -->
     <section id="projets">
-      <div class="container" data-aos="fade-right">
+ <div class="container" data-aos="fade-right">
         <h2 class="section-title">Projets</h2>
         <p class="lead">Réalisations techniques durant ma formation BTS SIO SISR</p>
         <div class="grid cols-2">
-          <div class="card"><strong>Jeu « Devine le Nombre »</strong><p>Développement d’une application web en Javascript et HTML, distribuée en réseau : Création de site web, mise à disposition en réseau, élaboration de cahier des charges, de recette et de test.</p></div>
-          <div class="card"><strong>Projet de Site web hebergé en réseau VLAN</strong><p>Développement d’un site web, sécurisé, disponible en réseau VLAN. Inclut base de donnée SQL, script d’automatisation bash, html, php.: Programmation de site web, mise en place d’une infrastructure réseau détaillée et fonctionnelle, mise à disposition en réseau VLAN, limitation des accès. Elaboration de cahier des charges, de recette et de test.</p></div>
+          <div class="card"><strong>Jeu « Devine le Nombre »</strong><p>Développement d’une application web en Javascript et HTML, distribuée en réseau.</p></div>
+          <div class="card"><strong>Projet de Site web hébergé en réseau VLAN</strong><p>Développement d’un site web sécurisé avec base SQL et scripts d’automatisation.</p></div>
           <div class="card"><strong>Serveur GLPI</strong><p>Gestion de parc et supervision.</p></div>
           <div class="card"><strong>pfSense</strong><p>Segmentation, NAT, filtrage.</p></div>
         </div>
-      </div>
-    </section>
+      </div>    </section>
 
     <!-- VEILLE -->
-    <section id="veille">
-      <div class="container" data-aos="fade-up">
+    <section id="veille" class="alt">
+<div class="container" data-aos="fade-up">
         <h2 class="section-title">Veille technologique</h2>
         <div class="timeline">
           <div class="timeline-item"><h4>Cybersécurité</h4><p>Analyse des menaces, suivi CVE, durcissement systèmes.</p></div>
           <div class="timeline-item"><h4>Cloud & Virtualisation</h4><p>Évolution des environnements et services sécurisés.</p></div>
         </div>
-      </div>
-    </section>
+      </div>    </section>
 
     <!-- COMPETENCES -->
     <section id="competences">
-      <div class="container" data-aos="fade-right">
-        <h2 class="section-title">Compétences</h2>
-        <div class="grid cols-3" style="margin-top:18px">
-          <div class="card">
-            <h3 style="color:var(--accent)">Systèmes & Réseaux</h3>
-            <ul style="margin-top:8px">
-              <li>Linux, Windows Server</li>
-              <li>Active Directory</li>
-              <li>Virtualisation (Proxmox, VirtualBox)</li>
-              <li>Réseaux VLAN, DHCP, DNS</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 style="color:var(--accent)">Développement</h3>
-            <ul style="margin-top:8px">
-              <li>HTML, CSS, PHP</li>
-              <li>SQL / Bases de données</li>
-              <li>Python, PowerShell</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 style="color:var(--accent)">Outils & Sécurité</h3>
-            <ul style="margin-top:8px">
-              <li>Git / GitHub</li>
-              <li>pfSense, GLPI</li>
-              <li>Packet Tracer</li>
-              <li>Cybersécurité — veille & bonnes pratiques</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card" style="margin-top:24px;text-align:center">
-          <h3 style="color:var(--accent);margin-bottom:12px">Tableau de Synthèse</h3>
-          <p>Retrouvez l'ensemble de mes compétences, projets et mises en pratique dans un tableau récapitulatif.</p>
-          <a href="pdf/tableau.xlsx" class="btn btn-outline stage-btn" target="_blank">Voir le tableau</a>
-        </div>
+<div class="container" data-aos="fade-right">
+    <h2 class="section-title">Compétences</h2>
+
+    <!-- Première rangée : 3 colonnes -->
+    <div class="grid cols-3" style="margin-top:18px">
+      <div class="card">
+        <h3 style="color:var(--accent)">Systèmes & Réseaux</h3>
+        <ul style="margin-top:8px">
+          <li>Linux, Windows Server</li>
+          <li>Active Directory</li>
+          <li>Virtualisation (Proxmox, VirtualBox)</li>
+          <li>Réseaux VLAN, DHCP, DNS</li>
+        </ul>
       </div>
-    </section>
+      <div class="card">
+        <h3 style="color:var(--accent)">Développement</h3>
+        <ul style="margin-top:8px">
+          <li>HTML, CSS, PHP</li>
+          <li>SQL / Bases de données</li>
+          <li>Python, PowerShell</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent)">Outils & Sécurité</h3>
+        <ul style="margin-top:8px">
+          <li>Git / GitHub</li>
+          <li>pfSense, GLPI</li>
+          <li>Packet Tracer</li>
+          <li>Cybersécurité — veille & bonnes pratiques</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Deuxième rangée : 2 colonnes centrées -->
+    <div class="grid cols-2" style="margin-top:24px; justify-content:center; max-width:800px; margin-left:auto; margin-right:auto;">
+      <div class="card">
+        <h3 style="color:var(--accent)">Cybersécurité</h3>
+        <ul style="margin-top:8px">
+          <li>Protection des données personnelles</li>
+          <li>Sensibilisation des utilisateurs</li>
+          <li>Surveillance et analyse des logs</li>
+          <li>Gestion des mots de passe</li>
+          <li>Détection des intrusions</li>
+          <li>Analyse des menaces</li>
+          <li>Chiffrement de fichiers</li>
+          <li>Stéganographie</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent)">Gestion de projet</h3>
+        <ul style="margin-top:8px">
+          <li>Planification de projet</li>
+          <li>Définition des objectifs et livrables</li>
+          <li>Gestion des ressources</li>
+          <li>Attribution des tâches</li>
+          <li>Suivi des délais</li>
+          <li>Réunions de suivi</li>
+          <li>Documentation projet</li>
+          <li>Kanboard, Gantt, Trello, Slack, Office 365</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tableau de synthèse -->
+      <div class="card" style="margin-top:24px;text-align:center">
+          <h3 style="color:var(--accent);margin-bottom:12px">Tableau de Synthèse</h3>
+          <p>Retrouvez l'ensemble de mes compétences dans un tableau récapitulatif.</p>
+          <div style="margin-top:12px">
+            <a href="pdf/tableau.xlsx" class="btn btn-outline" target="_blank">Voir le tableau</a>
+          </div>    </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="alt">
       <div class="container" data-aos="fade-up">
         <h2 class="section-title">Contact</h2>
         <form class="contact card" onsubmit="event.preventDefault(); alert('Formulaire simulé');">
@@ -337,9 +374,7 @@
     </section>
 
     <footer class="site-footer">
-      <div class="container">
-        <p class="text-muted">© 2025 – Portfolio Yanis A. — BTS SIO SISR</p>
-      </div>
+      ...
     </footer>
   </main>
 
@@ -348,8 +383,15 @@
     AOS.init({ duration: 900, once: true, offset: 80 });
     function toggleCerts(){
       const box=document.querySelector('.certs-container');
-      box.style.display = (box.style.display==="none"||box.style.display==="")?"grid":"none";
+      box.style.display = (box.style.display==='grid')?'none':'grid';
     }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click',function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
   </script>
 </body>
 </html>
