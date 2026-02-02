@@ -112,6 +112,8 @@
     .date-label{font-size:0.8rem;color:var(--accent);margin-bottom:8px;display:block}
 
   </style>
+  <!-- Credly script (une seule fois dans la page, idéalement avant </body>) -->
+<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </head>
 <body>
 
@@ -191,30 +193,46 @@ Mon objectif est simple : faire de cette curiosité et de cette soif d’apprend
         </div>
       </div>    </section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications">
-<div class="container" data-aos="fade-right">
+   <!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container" data-aos="fade-right">
     <h2 class="section-title">Certifications</h2>
     <p class="lead">Cliquez pour afficher/masquer mes certifications.</p>
     <button class="btn btn-outline cert-toggle" onclick="toggleCerts()">Afficher / Masquer</button>
+
     <div class="certs-container grid cols-2">
-      
-      <div class="card" style="display:flex;align-items:center;gap:12px">
-        <img src="img/pix.png" alt="Pix" style="width:36px;height:36px">
+
+      <!-- Python Essentials -->
+      <div class="card" style="display:flex;align-items:center;gap:18px">
         <div>
-          <strong>Certificat Pix</strong><br>
-          <a href="pdf/certificat-pix.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+          <div data-iframe-width="150"
+               data-iframe-height="270"
+               data-share-badge-id="ef619f68-c496-4160-9fc5-a953a42a366d"
+               data-share-badge-host="https://www.credly.com">
+          </div>
+        </div>
+        <div>
+          <strong>Python Essentials</strong><br>
+          <a href="pdf/python-essentials.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
         </div>
       </div>
-      
-      <div class="card" style="display:flex;align-items:center;gap:12px">
-        <img src="img/packettracer.png" alt="Packet Tracer" style="width:36px;height:36px">
+
+      <!-- Introduction à Packet Tracer -->
+      <div class="card" style="display:flex;align-items:center;gap:18px">
         <div>
-          <strong>Packet Tracer</strong><br>
+          <div data-iframe-width="150"
+               data-iframe-height="270"
+               data-share-badge-id="258684df-c7e2-4856-a8cb-487f54c71584"
+               data-share-badge-host="https://www.credly.com">
+          </div>
+        </div>
+        <div>
+          <strong>Introduction à Packet Tracer</strong><br>
           <a href="pdf/packet-tracer.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
         </div>
       </div>
-      
+
+      <!-- Introduction à la cybersécurité -->
       <div class="card" style="display:flex;align-items:center;gap:12px">
         <img src="img/cyber.png" alt="Cybersécurité" style="width:36px;height:36px">
         <div>
@@ -222,17 +240,28 @@ Mon objectif est simple : faire de cette curiosité et de cette soif d’apprend
           <a href="pdf/cybersecurite.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
         </div>
       </div>
-      
-      <div class="card" style="display:flex;align-items:center;gap:12px">
-        <img src="img/reseau.png" alt="Réseaux" style="width:36px;height:36px">
-        <div>
-          <strong>Notions de base sur les réseaux</strong><br>
-          <a href="pdf/reseaux.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
-        </div>
-      </div>
+
+     <!-- Networking Basics -->
+<div class="card" style="display:flex;align-items:center;gap:18px">
+  <div>
+    <div data-iframe-width="150"
+         data-iframe-height="270"
+         data-share-badge-id="c11902da-80ea-4062-aefe-c04a70c5b6fe"
+         data-share-badge-host="https://www.credly.com">
+    </div>
+  </div>
+  <div>
+    <strong>Networking Basics</strong><br>
+    <a href="pdf/networking-basics.pdf" target="_blank" style="color:var(--accent)">Voir PDF</a>
+  </div>
+</div>
 
     </div>
-  </div>    </section>
+  </div>
+</section>
+
+
+
 
     <!-- EXP -->
     <section id="experiences" class="alt">
